@@ -2,10 +2,11 @@
 #include "Settings.h"
 int main(void)
 {
-	Game game{settings::screenWidth,
+	Game game(settings::screenWidth,
 			  settings::screenHeight,
+			  settings::boardScreenPos,
 			  settings::fps,
-			  settings::title};
+			  settings::title);
 
 	while (!game.GameShouldClose())
 	{

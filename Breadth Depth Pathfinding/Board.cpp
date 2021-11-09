@@ -19,12 +19,19 @@ Board::Board(Vec2<int> dimensions,Vec2<int> topLeftScreenPos, int cellRadius, in
 
 void Board::SetCell(Vec2<int> boardPos, CellType type)
 {
+	assert(boardPos.GetX() >= 0 && boardPos.GetX() < width
+		   && boardPos.GetY() >= 0 && boardPos.GetY() < height); //If assertion triggers : x or y out of range
 	content[boardPos.GetY() * width + boardPos.GetX()] = type;
 }
 
 void Board::DrawCell(Vec2<int> boardPos)
 {
-	Vec2<int> pos = boardPos * cellRadius * 2 + topLeftScreenPos;
+	//Calculate the position of the cell on the screen
+	//Start from the topleft of the board (we also add cell radius because we draw circles from the center)
+	Vec2<int> pos = topLeftScreenPos + cellRadius;
+	//Add the required distance depending on the cell's position in the board
+	pos += boardPos * cellRadius * 2;
+	//Draw the cell and take the padding into account
 	raycpp::DrawCircle(pos,
 					   cellRadius - cellPadding,
 					   GetCellColor(content[boardPos.GetY() * width + boardPos.GetX()]));
