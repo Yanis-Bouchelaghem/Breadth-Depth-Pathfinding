@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "StateMachine.h"
+
 
 class Game
 {
@@ -13,4 +16,5 @@ public:
 private:
 	void Update();
 	void Draw();
+private:
 };

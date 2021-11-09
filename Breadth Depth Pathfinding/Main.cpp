@@ -1,8 +1,11 @@
 #include "Game.h"
-
+#include "Settings.h"
 int main(void)
 {
-	Game game{800,600,60,"Pathfinding robot"};
+	Game game{settings::screenWidth,
+			  settings::screenHeight,
+			  settings::fps,
+			  settings::title};
 
 	while (!game.GameShouldClose())
 	{
