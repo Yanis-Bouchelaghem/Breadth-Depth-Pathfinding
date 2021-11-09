@@ -14,3 +14,8 @@ void raycpp::DrawRectangleLinesEx(Vec2<int> pos, Vec2<int> widthHeight, int line
 	assert(lineThick > 0); //If assertion triggers : line thickness is less than 1
 	DrawRectangleLinesEx({(float)pos.GetX(),(float)pos.GetY(), (float)widthHeight.GetX(), (float)widthHeight.GetY()}, lineThick, color);
 }
+
+void raycpp::DrawCircle(Vec2<int> center, int radius, Color color)
+{
+	DrawCircle(center.GetX(), center.GetY(), (float)radius, color);
+}
