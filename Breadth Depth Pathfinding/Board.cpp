@@ -24,7 +24,7 @@ void Board::SetCell(Vec2<int> boardPos, CellType type)
 	content[boardPos.GetY() * width + boardPos.GetX()] = type;
 }
 
-void Board::DrawCell(Vec2<int> boardPos)
+void Board::DrawCell(Vec2<int> boardPos) const
 {
 	//Calculate the position of the cell on the screen
 	//Start from the topleft of the board (we also add cell radius because we draw circles from the center)
@@ -37,7 +37,24 @@ void Board::DrawCell(Vec2<int> boardPos)
 					   GetCellColor(content[boardPos.GetY() * width + boardPos.GetX()]));
 }
 
-void Board::Draw()
+int Board::GetWidth() const
+{
+	return width;
+}
+
+int Board::GetHeight() const
+{
+	return height;
+}
+
+CellType Board::GetCellType(Vec2<int> boardPos) const
+{
+	assert(boardPos.GetX() >= 0 && boardPos.GetX() < width
+		&& boardPos.GetY() >= 0 && boardPos.GetY() < height); //If assertion triggers : x or y out of range
+	return content[boardPos.GetY() * width + boardPos.GetY()];
+}
+
+void Board::Draw() const
 {
 	for (int x = 0; x < width; ++x)
 	{
@@ -50,7 +67,7 @@ void Board::Draw()
 
 
 
-Color Board::GetCellColor(CellType celltype)
+Color Board::GetCellColor(CellType celltype) const
 {
 	switch (celltype)
 	{
