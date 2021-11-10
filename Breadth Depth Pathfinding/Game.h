@@ -4,6 +4,7 @@
 #include "StateMachine.h"
 #include "Board.h"
 
+//A class that handles the game's screen, loop and logic.
 class Game
 {
 public:

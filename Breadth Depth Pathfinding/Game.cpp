@@ -9,7 +9,9 @@ Game::Game(int width, int height,Vec2<int> boardScreenPos, int fps, std::string 
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
-
+	board.SetCell({1,1},CellType::objective);
+	board.SetCell({2,8},CellType::wall);
+	board.SetCell({5,3},CellType::wall);
 }
 
 Game::~Game() noexcept

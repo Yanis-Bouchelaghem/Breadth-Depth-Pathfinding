@@ -3,6 +3,7 @@
 #include "raylibCpp.h"
 #include "Vec2.h"
 
+//Represents what a cell can contain
 enum class CellType
 {
 	empty,
@@ -10,6 +11,7 @@ enum class CellType
 	objective
 };
 
+//A class that represents the play field, handles the content of the board and its display.
 class Board
 {
 public:

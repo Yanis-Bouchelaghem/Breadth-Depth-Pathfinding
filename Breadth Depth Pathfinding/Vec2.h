@@ -1,5 +1,6 @@
 #pragma once
 
+//A class that represents a 2D Vector of any type that supports the common mathematical operations.
 template <typename T>
 class Vec2
 {

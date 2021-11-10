@@ -2,6 +2,8 @@
 
 namespace engine
 {
+	//A base class to represent a particular game state.
+	//Inherit from this and implement the functions to handle a state.
 	class State
 	{
 	public:
@@ -12,6 +14,6 @@ namespace engine
 		virtual void Draw() = 0;
 
 		virtual void Pause() {};
-		virtual void Resume() {}
+		virtual void Resume() {};
 	};
 }

@@ -13,48 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\States">
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{59c25996-dc09-46d6-a8ba-84ab149d8b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\States">
       <UniqueIdentifier>{38479383-f4b1-4f35-9de9-2db67ea560cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{e5bb44aa-2e51-4798-9e6d-fd78ae2bd814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\States">
+      <UniqueIdentifier>{bd87cb21-5b97-494b-b6ef-d48f3acfab65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="raylibCpp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Source Files\Engine\States</Filter>
+    </ClCompile>
+    <ClCompile Include="raylibCpp.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="raylibCpp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateMachine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Settings.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine\States</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="raylibCpp.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Header Files\Engine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

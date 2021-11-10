@@ -1,14 +1,6 @@
 #include "StateMachine.h"
 #include <assert.h>
 
-engine::StateMachine::StateMachine()
-{
-}
-
-engine::StateMachine::~StateMachine()
-{
-}
-
 void engine::StateMachine::AddState(std::unique_ptr<State> newState, bool isReplacing)
 {
 	bIsAdding = true;
@@ -24,10 +16,12 @@ void engine::StateMachine::RemoveState()
 
 void engine::StateMachine::ProcessStateChanges()
 {
-	if (bIsRemoving && statesStack.empty())
+	if (bIsRemoving)
 	{
+		//Removes the active state and resumes the previous one if it exists.
+		assert(!statesStack.empty()); //If assertion triggers : There are no states to remove
 		statesStack.pop();
-		if (statesStack.empty())
+		if (!statesStack.empty())
 		{
 			statesStack.top()->Resume();
 		}
@@ -37,6 +31,7 @@ void engine::StateMachine::ProcessStateChanges()
 
 	if (bIsAdding)
 	{
+		//Either pauses or removes the previous state, then adds the new one.
 		if (!statesStack.empty())
 		{
 			if (bIsReplacing)
