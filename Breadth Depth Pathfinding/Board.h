@@ -17,6 +17,7 @@ class Board
 public:
 	Board(Vec2<int> widthHeight, Vec2<int> topLeftScreenPos, int cellRadius, int cellPadding);
 	void SetCell(Vec2<int> boardPos, CellType type);
+	void DrawCell(Vec2<int> boardPos, Color c) const;
 	void DrawCell(Vec2<int> boardPos) const;
 	void Draw() const;
 	int GetWidth() const;

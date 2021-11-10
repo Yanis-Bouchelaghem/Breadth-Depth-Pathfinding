@@ -24,7 +24,7 @@ void Board::SetCell(Vec2<int> boardPos, CellType type)
 	content[boardPos.GetY() * width + boardPos.GetX()] = type;
 }
 
-void Board::DrawCell(Vec2<int> boardPos) const
+void Board::DrawCell(Vec2<int> boardPos, Color c) const
 {
 	//Calculate the position of the cell on the screen
 	//Start from the topleft of the board (we also add cell radius because we draw circles from the center)
@@ -33,8 +33,13 @@ void Board::DrawCell(Vec2<int> boardPos) const
 	pos += boardPos * cellRadius * 2;
 	//Draw the cell and take the padding into account
 	raycpp::DrawCircle(pos,
-					   cellRadius - cellPadding,
-					   GetCellColor(content[boardPos.Map2DTo1D(width)]));
+		cellRadius - cellPadding,
+		c);
+}
+
+void Board::DrawCell(Vec2<int> boardPos) const
+{
+	DrawCell(boardPos, GetCellColor(content[boardPos.Map2DTo1D(width)]));
 }
 
 int Board::GetWidth() const
@@ -64,8 +69,6 @@ void Board::Draw() const
 		}
 	}
 }
-
-
 
 Color Board::GetCellColor(CellType celltype) const
 {
