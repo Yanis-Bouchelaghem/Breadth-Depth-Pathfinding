@@ -34,7 +34,7 @@ void Board::DrawCell(Vec2<int> boardPos) const
 	//Draw the cell and take the padding into account
 	raycpp::DrawCircle(pos,
 					   cellRadius - cellPadding,
-					   GetCellColor(content[boardPos.GetY() * width + boardPos.GetX()]));
+					   GetCellColor(content[boardPos.Map2DTo1D(width)]));
 }
 
 int Board::GetWidth() const
@@ -51,7 +51,7 @@ CellType Board::GetCellType(Vec2<int> boardPos) const
 {
 	assert(boardPos.GetX() >= 0 && boardPos.GetX() < width
 		&& boardPos.GetY() >= 0 && boardPos.GetY() < height); //If assertion triggers : x or y out of range
-	return content[boardPos.GetY() * width + boardPos.GetY()];
+	return content[boardPos.Map2DTo1D(width)];
 }
 
 void Board::Draw() const

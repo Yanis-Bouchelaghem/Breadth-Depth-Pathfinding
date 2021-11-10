@@ -31,6 +31,6 @@ private:
 	const int height;
 	const int cellRadius;
 	const int cellPadding;
-	Vec2<int> topLeftScreenPos;
+	const Vec2<int> topLeftScreenPos;
 
 };

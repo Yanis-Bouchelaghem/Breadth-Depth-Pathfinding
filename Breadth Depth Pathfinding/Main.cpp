@@ -4,7 +4,6 @@ int main(void)
 {
 	Game game(settings::screenWidth,
 			  settings::screenHeight,
-			  settings::boardScreenPos,
 			  settings::fps,
 			  settings::title);
 

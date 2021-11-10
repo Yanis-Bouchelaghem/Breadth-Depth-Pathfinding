@@ -15,6 +15,7 @@ public:
 	constexpr T GetY() const {return y;};
 	constexpr void SetX(T x_in) { x = x_in;};
 	constexpr void SetY(T y_in) { y = y_in;};
+	constexpr T Map2DTo1D(T width) const {return y * width + x;};
 public:
 	constexpr bool operator==(const Vec2& rhs) const
 	{

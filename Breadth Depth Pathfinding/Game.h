@@ -8,7 +8,7 @@
 class Game
 {
 public:
-	Game(int width, int height, Vec2<int> boardScreenPos, int fps, std::string title);
+	Game(int width, int height, int fps, std::string title);
 	Game(const Game& other) = delete;
 	Game& operator=(const Game& other) = delete;
 	~Game() noexcept;
