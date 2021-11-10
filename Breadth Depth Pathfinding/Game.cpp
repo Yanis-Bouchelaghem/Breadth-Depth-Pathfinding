@@ -1,10 +1,11 @@
-#include <assert.h>
 #include "Game.h"
+#include <assert.h>
 #include "raylibCpp.h"
 #include "Settings.h"
 Game::Game(int width, int height, int fps, std::string title)
 	:
-	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding)
+	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding),
+	dfsRobot(board,{3,3})
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
@@ -35,12 +36,17 @@ void Game::Tick()
 
 void Game::Update()
 {
+	if (IsKeyPressed(KEY_N))
+	{
+		dfsRobot.Next();
+	}
 }
 
 void Game::Draw()
 {
 	ClearBackground(BLACK);
 	board.Draw();
+	dfsRobot.DrawRobot();
 }
 
 

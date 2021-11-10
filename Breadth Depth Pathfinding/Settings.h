@@ -17,5 +17,6 @@ namespace settings
 	inline constexpr Color emptyColor = GRAY;
 	inline constexpr Color objectiveColor = RAYWHITE;
 	inline constexpr Color wallColor = RED;
+	inline constexpr Color robotColor = GOLD;
 
 }

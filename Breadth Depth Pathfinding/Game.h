@@ -3,6 +3,7 @@
 #include <vector>
 #include "StateMachine.h"
 #include "Board.h"
+#include "DFSRobot.h"
 
 //A class that handles the game's screen, loop and logic.
 class Game
@@ -19,4 +20,5 @@ private:
 	void Draw();
 private:
 	Board board;
+	DFSRobot dfsRobot;
 };
