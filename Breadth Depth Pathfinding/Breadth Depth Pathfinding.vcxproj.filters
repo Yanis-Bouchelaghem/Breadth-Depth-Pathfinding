@@ -49,7 +49,10 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="DFSRobot.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Robot</Filter>
+    </ClCompile>
+    <ClCompile Include="BFSRobot.cpp">
+      <Filter>Source Files\Robot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,10 +77,13 @@
     <ClInclude Include="Vec2.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="DFSRobot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Robot.h">
+      <Filter>Header Files\Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSRobot.h">
+      <Filter>Header Files\Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="BFSRobot.h">
       <Filter>Header Files\Robot</Filter>
     </ClInclude>
   </ItemGroup>
