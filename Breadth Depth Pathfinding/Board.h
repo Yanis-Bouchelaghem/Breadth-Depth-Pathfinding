@@ -16,10 +16,11 @@ class Board
 {
 public:
 	Board(Vec2<int> widthHeight, Vec2<int> topLeftScreenPos, int cellRadius, int cellPadding);
-	void SetCell(Vec2<int> boardPos, CellType type);
-	void DrawCell(Vec2<int> boardPos, Color c) const;
-	void DrawCell(Vec2<int> boardPos) const;
-	void Draw() const;
+	void SetCell(Vec2<int> boardPos, CellType type);//Sets a particular cell.
+	void DrawCell(Vec2<int> boardPos, Color c) const;//Draws a cell using a specific color.
+	void DrawCell(Vec2<int> boardPos) const;//Draws a cell using the color assigned to it's type in the settings.
+	void DrawCellOutline(Vec2<int> boardPos, Color c) const;//Draws a cell outline using a specific color
+	void Draw() const;//Draws all of the board's cells.
 	int GetWidth() const;
 	int GetHeight() const;
 	CellType GetCellType(Vec2<int> boardPos) const;

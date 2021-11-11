@@ -47,6 +47,8 @@ void Game::Draw()
 	ClearBackground(BLACK);
 	board.Draw();
 	dfsRobot.DrawRobot();
+	dfsRobot.DrawVisitedOutline();
+	dfsRobot.DrawTargetedOutline();
 }
 
 

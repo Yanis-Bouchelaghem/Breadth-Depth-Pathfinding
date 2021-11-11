@@ -21,18 +21,14 @@ struct Node
 class DFSRobot
 {
 public:
-	//Creates a robot and generates a node graph out of the board.
-	DFSRobot(Board& board, Vec2<int> robotPos);
-	//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet)
-	bool IsPositionValid(Vec2<int> position) const;
-	//Returns true if the robot reached the objective or if it could not find it.
-	bool IsFinished() const;
-	//Returns whether or not the robot has found the objective after finishing the algorithm.
-	bool HasFoundObjective() const;
-	//Advances the algorithm by one step.
-	void Next();
-	//Draws the robot on the board at its current position.
-	void DrawRobot() const;
+	DFSRobot(Board& board, Vec2<int> robotPos);//Creates a robot and generates a node graph out of the board.
+	bool IsPositionValid(Vec2<int> position) const;//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet)
+	bool IsFinished() const;//Returns true if the robot reached the objective or if it could not find it.
+	bool HasFoundObjective() const;//Returns whether or not the robot has found the objective after finishing the algorithm.
+	void Next();//Advances the algorithm by one step.
+	void DrawRobot() const;//Draws the robot on the board at its current position.
+	void DrawVisitedOutline() const;//Outlines the visited cells.
+	void DrawTargetedOutline() const;//Outlines the targeted cells.
 private:
 	std::vector<Node> graph;
 	Board& board;

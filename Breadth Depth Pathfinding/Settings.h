@@ -16,7 +16,9 @@ namespace settings
 	inline constexpr int padding = 5;
 	inline constexpr Color emptyColor = GRAY;
 	inline constexpr Color objectiveColor = RAYWHITE;
-	inline constexpr Color wallColor = RED;
+	inline constexpr Color wallColor = VIOLET;
 	inline constexpr Color robotColor = GOLD;
+	inline constexpr Color visitedColor = GREEN;
+	inline constexpr Color targetedColor = RED;
 
 }

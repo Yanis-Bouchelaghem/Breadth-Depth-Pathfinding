@@ -47,6 +47,16 @@ int Board::GetWidth() const
 	return width;
 }
 
+void Board::DrawCellOutline(Vec2<int> boardPos, Color c) const
+{
+	//Calculate the position of the cell on the screen
+	Vec2<int> pos = topLeftScreenPos + cellRadius;
+	//Add the required distance depending on the cell's position in the board
+	pos += boardPos * cellRadius * 2;
+	//Draw the cell outline
+	raycpp::DrawRing(pos,cellRadius - settings::padding, cellRadius,0,360,0,c);
+}
+
 int Board::GetHeight() const
 {
 	return height;

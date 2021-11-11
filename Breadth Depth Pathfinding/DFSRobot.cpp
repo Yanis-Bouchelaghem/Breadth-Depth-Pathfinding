@@ -79,3 +79,27 @@ void DFSRobot::DrawRobot() const
 	board.DrawCell(currentPos,settings::robotColor);
 }
 
+void DFSRobot::DrawVisitedOutline() const
+{
+	for (int x = 0; x < board.GetWidth(); ++x)
+	{
+		for (int y = 0; y < board.GetHeight(); ++y)
+		{
+			if(graph[y * board.GetWidth() + x].state == NodeState::visited)
+				board.DrawCellOutline({x,y},settings::visitedColor);
+		}
+	}
+}
+
+void DFSRobot::DrawTargetedOutline() const
+{
+	for (int x = 0; x < board.GetWidth(); ++x)
+	{
+		for (int y = 0; y < board.GetHeight(); ++y)
+		{
+			if (graph[y * board.GetWidth() + x].state == NodeState::targeted)
+				board.DrawCellOutline({ x,y }, settings::targetedColor);
+		}
+	}
+}
+
