@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
 #include "StateMachine.h"
 #include "Board.h"
-#include "DFSRobot.h"
+#include "Robot.h"
 
 //A class that handles the game's screen, loop and logic.
 class Game
@@ -20,5 +21,5 @@ private:
 	void Draw();
 private:
 	Board board;
-	DFSRobot dfsRobot;
+	std::unique_ptr<Robot> robot;
 };

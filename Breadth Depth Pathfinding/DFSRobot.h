@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <stack>
+#include "Robot.h"
 #include "Board.h"
 #include "Vec2.h"
 
@@ -18,20 +19,20 @@ struct Node
 };
 
 //A class that represents a robot that applies the Depth First Search algorithm.
-class DFSRobot
+class DFSRobot : public Robot
 {
 public:
 	DFSRobot(Board& board, Vec2<int> robotPos);//Creates a robot and generates a node graph out of the board.
-	bool IsPositionValid(Vec2<int> position) const;//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet/Isn't targeted yet)
-	bool IsFinished() const;//Returns true if the robot reached the objective or if it could not find it.
-	bool HasFoundObjective() const;//Returns whether or not the robot has found the objective after finishing the algorithm.
-	void Next();//Advances the algorithm by one step.
-	void DrawRobot() const;//Draws the robot on the board at its current position.
-	void DrawVisitedOutline() const;//Outlines the visited cells.
-	void DrawTargetedOutline() const;//Outlines the targeted cells.
-	void DrawFinalObjectivePath() const;//Outlines the cells to take to reach the objective.
+	bool IsFinished() const override;//Returns true if the robot reached the objective or if it could not find it.
+	bool HasFoundObjective() const override;//Returns whether or not the robot has found the objective after finishing the algorithm.
+	void Next() override;//Advances the algorithm by one step.
+	void DrawRobot() const override;//Draws the robot on the board at its current position.
+	void DrawVisitedOutline() const override;//Outlines the visited cells.
+	void DrawTargetedOutline() const override;//Outlines the targeted cells.
+	void DrawFinalObjectivePath() const override;//Outlines the cells to take to reach the objective and enumerates them.
 private:
-	std::vector<Vec2<int>> CalculateFinalObjectivePath() const;//Traces back the path to the objective once the algorithm is finished.
+	bool IsPositionValid(Vec2<int> position) const override;//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet/Isn't targeted yet)
+	std::vector<Vec2<int>> CalculateFinalObjectivePath() const override;//Traces back the path to the objective once the algorithm is finished.
 private:
 	std::vector<Node> graph;
 	Board& board;

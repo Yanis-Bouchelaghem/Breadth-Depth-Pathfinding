@@ -2,10 +2,13 @@
 #include <assert.h>
 #include "raylibCpp.h"
 #include "Settings.h"
+#include "DFSRobot.h"
+#include "Vec2.h"
+
 Game::Game(int width, int height, int fps, std::string title)
 	:
 	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding),
-	dfsRobot(board,{4,3})
+	robot(std::make_unique<DFSRobot>(board,Vec2{4,3}))
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
@@ -43,7 +46,7 @@ void Game::Update()
 {
 	if (IsKeyPressed(KEY_N))
 	{
-		dfsRobot.Next();
+		robot->Next();
 	}
 }
 
@@ -51,14 +54,14 @@ void Game::Draw()
 {
 	ClearBackground(BLACK);
 	board.Draw();
-	dfsRobot.DrawRobot();
-	dfsRobot.DrawVisitedOutline();
-	dfsRobot.DrawTargetedOutline();
-	if (dfsRobot.IsFinished())
+	robot->DrawRobot();
+	robot->DrawVisitedOutline();
+	robot->DrawTargetedOutline();
+	if (robot->IsFinished())
 	{	
-		if (dfsRobot.HasFoundObjective())
+		if (robot->HasFoundObjective())
 		{
-			dfsRobot.DrawFinalObjectivePath();
+			robot->DrawFinalObjectivePath();
 		}
 	}
 }

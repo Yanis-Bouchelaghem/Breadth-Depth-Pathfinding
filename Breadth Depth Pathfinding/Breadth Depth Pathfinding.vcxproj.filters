@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Engine\States">
       <UniqueIdentifier>{bd87cb21-5b97-494b-b6ef-d48f3acfab65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Robot">
+      <UniqueIdentifier>{a572fe42-c1ad-4019-ae82-266eb782c549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Robot">
+      <UniqueIdentifier>{bf7c10fd-22d5-4565-9ab5-cc26cc4e3946}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -70,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="DFSRobot.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot.h">
+      <Filter>Header Files\Robot</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

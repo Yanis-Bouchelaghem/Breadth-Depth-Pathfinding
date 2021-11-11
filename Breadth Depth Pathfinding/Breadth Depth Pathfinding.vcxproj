@@ -155,6 +155,7 @@
     <ClInclude Include="DFSRobot.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="raylibCpp.h" />
+    <ClInclude Include="Robot.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
