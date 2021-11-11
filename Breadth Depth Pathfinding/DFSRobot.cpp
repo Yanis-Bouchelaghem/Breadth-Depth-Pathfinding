@@ -52,6 +52,7 @@ void DFSRobot::Next()
 	{
 		//We found the objective.
 		bFoundObjective = true;
+		finalObjectivePath = CalculateFinalObjectivePath();
 	}
 	else
 	{
@@ -101,5 +102,30 @@ void DFSRobot::DrawTargetedOutline() const
 				board.DrawCellOutline({ x,y }, settings::targetedColor);
 		}
 	}
+}
+
+void DFSRobot::DrawFinalObjectivePath() const
+{
+	assert(bFoundObjective);//If assertion triggers: the path to the objective hasn't been found yet.
+	for (auto& vec : finalObjectivePath)
+	{
+		board.DrawCellOutline(vec,settings::objectivePathColor);
+	}
+}
+
+std::vector<Vec2<int>> DFSRobot::CalculateFinalObjectivePath() const
+{
+	assert(bFoundObjective);//If assertion triggers: objective hasn't been found yet, cannot calculate path.
+	std::vector<Vec2<int>> path;
+	//Get the node of the current position (the objective)
+	const Node& node = graph[currentPos.Map2DTo1D(board.GetWidth())];
+	Vec2<int> position = currentPos;
+	//Trace back until we cannot find a parent anymore.
+	while (position != Vec2{ -1,-1 })
+	{
+		path.emplace_back(position);
+		position = graph[position.Map2DTo1D(board.GetWidth())].parent;
+	}
+	return path;
 }
 

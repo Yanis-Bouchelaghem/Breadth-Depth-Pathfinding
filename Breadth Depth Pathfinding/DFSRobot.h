@@ -29,12 +29,17 @@ public:
 	void DrawRobot() const;//Draws the robot on the board at its current position.
 	void DrawVisitedOutline() const;//Outlines the visited cells.
 	void DrawTargetedOutline() const;//Outlines the targeted cells.
+	void DrawFinalObjectivePath() const;//Outlines the cells to take to reach the objective.
+private:
+	std::vector<Vec2<int>> CalculateFinalObjectivePath() const;//Traces back the path to the objective once the algorithm is finished.
 private:
 	std::vector<Node> graph;
 	Board& board;
 	std::stack<Vec2<int>> positionsStack;
 	Vec2<int> currentPos;
 
+	//A vector to hold the path towards the objective once the algorithm is finished
+	std::vector<Vec2<int>> finalObjectivePath;
 	bool bFoundObjective = false;
 
 	//Initialize direction vectors (will help us reach adjacent cells)

@@ -20,5 +20,6 @@ namespace settings
 	inline constexpr Color robotColor = GOLD;
 	inline constexpr Color visitedColor = GREEN;
 	inline constexpr Color targetedColor = RED;
+	inline constexpr Color objectivePathColor = YELLOW;
 
 }
