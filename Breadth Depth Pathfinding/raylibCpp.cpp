@@ -32,3 +32,8 @@ void raycpp::DrawRing(Vec2<int> center, int innerRadius, int outerRadius, float 
 		center.GetY() + outerRadius < GetScreenHeight());//If assertion triggers: trying to draw outside of screen
 	DrawRing({(float)center.GetX(),(float)center.GetY()}, (float)innerRadius, (float)outerRadius, startAngle, endAngle, segments, color);
 }
+
+void raycpp::DrawText(const std::string& text, Vec2<int> pos, int fontSize, Color color)
+{
+	DrawText(text.c_str(), pos.GetX(), pos.GetY(), fontSize, color);
+}

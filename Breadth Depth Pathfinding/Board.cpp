@@ -57,6 +57,16 @@ void Board::DrawCellOutline(Vec2<int> boardPos, Color c) const
 	raycpp::DrawRing(pos,cellRadius - settings::padding, cellRadius,0,360,0,c);
 }
 
+void Board::DrawCellNumber(Vec2<int> boardPos, int number, Color c) const
+{
+	int textWidth = MeasureText(std::to_string(number).c_str(), settings::numbersFontSize);
+	//Calculate the position of the cell on the screen
+	Vec2<int> pos = topLeftScreenPos + cellRadius - Vec2{textWidth/2,settings::numbersFontSize/2};
+	//Add the required distance depending on the cell's position on the board
+	pos += boardPos * cellRadius * 2;
+	raycpp::DrawText(std::to_string(number),pos,settings::numbersFontSize,c);
+}
+
 int Board::GetHeight() const
 {
 	return height;

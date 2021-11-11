@@ -14,6 +14,7 @@ namespace settings
 	inline constexpr Vec2<int> boardScreenPos{250,150};
 	inline constexpr int cellRadius = 30;
 	inline constexpr int padding = 5;
+	inline constexpr int numbersFontSize = 30;
 	inline constexpr Color emptyColor = GRAY;
 	inline constexpr Color objectiveColor = RAYWHITE;
 	inline constexpr Color wallColor = VIOLET;
@@ -21,5 +22,6 @@ namespace settings
 	inline constexpr Color visitedColor = GREEN;
 	inline constexpr Color targetedColor = RED;
 	inline constexpr Color objectivePathColor = YELLOW;
+	inline constexpr Color numbersColor = WHITE;
 
 }

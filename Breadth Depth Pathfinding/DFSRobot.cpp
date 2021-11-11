@@ -123,10 +123,14 @@ void DFSRobot::DrawTargetedOutline() const
 void DFSRobot::DrawFinalObjectivePath() const
 {
 	assert(bFoundObjective);//If assertion triggers: the path to the objective hasn't been found yet.
+	//Draw the path and enumeration
+	int length = int(finalObjectivePath.size() - 1);
 	for (auto& vec : finalObjectivePath)
 	{
 		board.DrawCellOutline(vec,settings::objectivePathColor);
+		board.DrawCellNumber(vec,length--,settings::numbersColor);
 	}
+
 }
 
 std::vector<Vec2<int>> DFSRobot::CalculateFinalObjectivePath() const

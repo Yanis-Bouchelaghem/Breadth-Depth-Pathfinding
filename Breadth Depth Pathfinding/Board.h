@@ -19,7 +19,8 @@ public:
 	void SetCell(Vec2<int> boardPos, CellType type);//Sets a particular cell.
 	void DrawCell(Vec2<int> boardPos, Color c) const;//Draws a cell using a specific color.
 	void DrawCell(Vec2<int> boardPos) const;//Draws a cell using the color assigned to it's type in the settings.
-	void DrawCellOutline(Vec2<int> boardPos, Color c) const;//Draws a cell outline using a specific color
+	void DrawCellOutline(Vec2<int> boardPos, Color c) const;//Draws a cell outline using a specific color.
+	void DrawCellNumber(Vec2<int> boardPos, int number, Color c) const;//Draws given number at the center of the given cell.
 	void Draw() const;//Draws all of the board's cells.
 	int GetWidth() const;
 	int GetHeight() const;
