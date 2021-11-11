@@ -22,7 +22,7 @@ bool DFSRobot::IsPositionValid(Vec2<int> position) const
 	if (board.GetCellType(position) == CellType::wall)
 		return false;
 	//If the cell has already been visited.
-	if (graph[position.Map2DTo1D(board.GetWidth())].visited)
+	if (graph[position.Map2DTo1D(board.GetWidth())].state == NodeState::visited)
 		return false;
 
 	//Otherwise, the cell is valid and can be moved to.
@@ -46,7 +46,7 @@ void DFSRobot::Next()
 	currentPos = positionsStack.top();
 	positionsStack.pop();
 	//Mark the node at the current position as visited.
-	graph[currentPos.Map2DTo1D(board.GetWidth())].visited = true;
+	graph[currentPos.Map2DTo1D(board.GetWidth())].state = NodeState::visited;
 	//Check if the current position is the objective.
 	if (board.GetCellType(currentPos) == CellType::objective)
 	{
@@ -66,7 +66,9 @@ void DFSRobot::Next()
 				//Add it to the stack.
 				positionsStack.push(adjacentPos);
 				//Add the parent (this position) to the adjacent nodes so that we can trace back once we are done.
-				graph[adjacentPos.Map2DTo1D(board.GetWidth())].parent = currentPos;
+				Node& adjacentNode = graph[adjacentPos.Map2DTo1D(board.GetWidth())];
+				adjacentNode.parent = currentPos;
+				adjacentNode.state = NodeState::targeted;
 			}
 		}
 	}
