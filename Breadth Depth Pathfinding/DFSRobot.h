@@ -22,7 +22,7 @@ class DFSRobot
 {
 public:
 	DFSRobot(Board& board, Vec2<int> robotPos);//Creates a robot and generates a node graph out of the board.
-	bool IsPositionValid(Vec2<int> position) const;//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet)
+	bool IsPositionValid(Vec2<int> position) const;//Returns whether or not a position can be moved to (Is not a wall/Is not out of bounds/Hasn't been visited yet/Isn't targeted yet)
 	bool IsFinished() const;//Returns true if the robot reached the objective or if it could not find it.
 	bool HasFoundObjective() const;//Returns whether or not the robot has found the objective after finishing the algorithm.
 	void Next();//Advances the algorithm by one step.

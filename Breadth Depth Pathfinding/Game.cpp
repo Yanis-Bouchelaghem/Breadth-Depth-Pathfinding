@@ -5,14 +5,19 @@
 Game::Game(int width, int height, int fps, std::string title)
 	:
 	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding),
-	dfsRobot(board,{3,3})
+	dfsRobot(board,{4,3})
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
-	board.SetCell({4,2},CellType::objective);
+	board.SetCell({10,2},CellType::objective);
 	board.SetCell({2,8},CellType::wall);
 	board.SetCell({5,3},CellType::wall);
+	board.SetCell({6,3},CellType::wall);
+	board.SetCell({7,3},CellType::wall);
+	board.SetCell({8,3},CellType::wall);
+	board.SetCell({9,3},CellType::wall);
+	board.SetCell({10,3},CellType::wall);
 }
 
 Game::~Game() noexcept
