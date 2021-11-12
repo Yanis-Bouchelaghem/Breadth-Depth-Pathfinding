@@ -5,6 +5,7 @@
 #include "DFSRobot.h"
 #include "BFSRobot.h"
 #include "Vec2.h"
+#include "RunningState.h"
 
 Game::Game(int width, int height, int fps, std::string title)
 	:
@@ -21,6 +22,7 @@ Game::Game(int width, int height, int fps, std::string title)
 	gameData->board.SetCell({8,3},CellType::wall);
 	gameData->board.SetCell({9,3},CellType::wall);
 	gameData->board.SetCell({10,3},CellType::wall);
+	gameData->stateMachine.AddState(std::make_unique<engine::RunningState>(gameData));
 }
 
 Game::~Game() noexcept
@@ -44,26 +46,16 @@ void Game::Tick()
 
 void Game::Update()
 {
-	if (IsKeyPressed(KEY_N))
-	{
-		gameData->robot->Next();
-	}
+	gameData->stateMachine.ProcessStateChanges();
+
+	gameData->stateMachine.GetActiveState().HandleInput();
+	gameData->stateMachine.GetActiveState().Update();
+
 }
 
 void Game::Draw()
 {
-	ClearBackground(BLACK);
-	gameData->board.Draw();
-	gameData->robot->DrawRobot();
-	gameData->robot->DrawVisitedOutline();
-	gameData->robot->DrawTargetedOutline();
-	if (gameData->robot->IsFinished())
-	{	
-		if (gameData->robot->HasFoundObjective())
-		{
-			gameData->robot->DrawFinalObjectivePath();
-		}
-	}
+	gameData->stateMachine.GetActiveState().Draw();
 }
 
 GameData::GameData()

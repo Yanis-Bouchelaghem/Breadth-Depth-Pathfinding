@@ -150,6 +150,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="raylibCpp.cpp" />
     <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="RunningState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="Robot.h" />
+    <ClInclude Include="RunningState.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

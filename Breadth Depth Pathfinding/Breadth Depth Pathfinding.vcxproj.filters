@@ -57,6 +57,9 @@
     <ClCompile Include="Robot.cpp">
       <Filter>Source Files\Robot</Filter>
     </ClCompile>
+    <ClCompile Include="RunningState.cpp">
+      <Filter>Source Files\Engine\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="BFSRobot.h">
       <Filter>Header Files\Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningState.h">
+      <Filter>Header Files\Engine\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

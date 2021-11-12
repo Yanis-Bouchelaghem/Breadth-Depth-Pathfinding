@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "StateMachine.h"
 #include "Board.h"
 #include "Robot.h"
+#include "StateMachine.h"
 
 //Contains all of the game's data
 struct GameData
@@ -12,7 +12,9 @@ struct GameData
 	GameData(); //Initializes the game's data
 	Board board;
 	std::unique_ptr<Robot> robot;
+	engine::StateMachine stateMachine;
 };
+
 
 //A class that handles the game's screen, loop and logic.
 class Game
