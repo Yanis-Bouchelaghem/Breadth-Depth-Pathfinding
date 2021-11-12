@@ -63,3 +63,10 @@ void BFSRobot::Next()
 		}
 	}
 }
+
+void BFSRobot::SetCurrentPosition(Vec2<int> newPos)
+{
+	currentPos = newPos;
+	positionsQueue.pop();//remove the old position
+	positionsQueue.push(newPos);
+}

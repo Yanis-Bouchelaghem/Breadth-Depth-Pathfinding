@@ -21,7 +21,6 @@ void engine::RunningState::Update()
 
 void engine::RunningState::Draw()
 {
-	ClearBackground(BLACK);
 	gameData->board.Draw();
 	gameData->robot->DrawRobot();
 	gameData->robot->DrawVisitedOutline();

@@ -6,6 +6,7 @@
 #include "BFSRobot.h"
 #include "Vec2.h"
 #include "RunningState.h"
+#include "SetupState.h"
 
 Game::Game(int width, int height, int fps, std::string title)
 	:
@@ -22,7 +23,7 @@ Game::Game(int width, int height, int fps, std::string title)
 	gameData->board.SetCell({8,3},CellType::wall);
 	gameData->board.SetCell({9,3},CellType::wall);
 	gameData->board.SetCell({10,3},CellType::wall);
-	gameData->stateMachine.AddState(std::make_unique<engine::RunningState>(gameData));
+	gameData->stateMachine.AddState(std::make_unique<engine::SetupState>(gameData));
 }
 
 Game::~Game() noexcept
@@ -55,6 +56,7 @@ void Game::Update()
 
 void Game::Draw()
 {
+	ClearBackground(BLACK);
 	gameData->stateMachine.GetActiveState().Draw();
 }
 

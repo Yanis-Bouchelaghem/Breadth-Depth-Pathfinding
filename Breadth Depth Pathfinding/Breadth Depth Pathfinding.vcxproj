@@ -151,6 +151,7 @@
     <ClCompile Include="raylibCpp.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="RunningState.cpp" />
+    <ClCompile Include="SetupState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="Robot.h" />
     <ClInclude Include="RunningState.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="SetupState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Vec2.h" />

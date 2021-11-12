@@ -24,4 +24,6 @@ namespace settings
 	inline constexpr Color objectivePathColor = YELLOW;
 	inline constexpr Color numbersColor = WHITE;
 
+	//Misc.
+	inline constexpr int textFontSize = 40;
 }
