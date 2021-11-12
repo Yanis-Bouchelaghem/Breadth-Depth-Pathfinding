@@ -6,6 +6,14 @@
 #include "Board.h"
 #include "Robot.h"
 
+//Contains all of the game's data
+struct GameData
+{
+	GameData(); //Initializes the game's data
+	Board board;
+	std::unique_ptr<Robot> robot;
+};
+
 //A class that handles the game's screen, loop and logic.
 class Game
 {
@@ -20,6 +28,5 @@ private:
 	void Update();
 	void Draw();
 private:
-	Board board;
-	std::unique_ptr<Robot> robot;
+	std::shared_ptr<GameData> gameData;
 };

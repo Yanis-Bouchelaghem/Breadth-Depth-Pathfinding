@@ -3,6 +3,7 @@
 #include "Vec2.h"
 #include "Board.h"
 
+//The possible states of a node
 enum class NodeState
 {
 	none,
@@ -10,6 +11,7 @@ enum class NodeState
 	targeted
 };
 
+//Represents a node in a graph
 struct Node
 {
 	NodeState state = NodeState::none;
