@@ -15,14 +15,7 @@ Game::Game(int width, int height, int fps, std::string title)
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
-	gameData->board.SetCell({10,2},CellType::objective);
-	gameData->board.SetCell({2,8},CellType::wall);
-	gameData->board.SetCell({5,3},CellType::wall);
-	gameData->board.SetCell({6,3},CellType::wall);
-	gameData->board.SetCell({7,3},CellType::wall);
-	gameData->board.SetCell({8,3},CellType::wall);
-	gameData->board.SetCell({9,3},CellType::wall);
-	gameData->board.SetCell({10,3},CellType::wall);
+	gameData->board.SetCell(settings::initialObjectivePos,CellType::objective);
 	gameData->stateMachine.AddState(std::make_unique<engine::SetupState>(gameData));
 }
 
@@ -63,6 +56,6 @@ void Game::Draw()
 GameData::GameData()
 	:
 	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding),
-	robot(std::make_unique<BFSRobot>(board,Vec2{4,3}))
+	robot(std::make_unique<BFSRobot>(board,settings::initialRobotPos))
 {
 }

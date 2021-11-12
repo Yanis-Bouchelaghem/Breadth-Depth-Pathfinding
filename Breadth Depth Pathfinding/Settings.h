@@ -24,6 +24,8 @@ namespace settings
 	inline constexpr Color objectivePathColor = YELLOW;
 	inline constexpr Color numbersColor = WHITE;
 
+	inline constexpr Vec2<int> initialRobotPos{5,4};
+	inline constexpr Vec2<int> initialObjectivePos{5,0};
 	//Misc.
 	inline constexpr int textFontSize = 40;
 }
