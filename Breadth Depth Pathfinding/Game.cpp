@@ -3,12 +3,13 @@
 #include "raylibCpp.h"
 #include "Settings.h"
 #include "DFSRobot.h"
+#include "BFSRobot.h"
 #include "Vec2.h"
 
 Game::Game(int width, int height, int fps, std::string title)
 	:
 	board(settings::widthHeight, settings::boardScreenPos, settings::cellRadius, settings::padding),
-	robot(std::make_unique<DFSRobot>(board,Vec2{4,3}))
+	robot(std::make_unique<BFSRobot>(board,Vec2{4,3}))
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
