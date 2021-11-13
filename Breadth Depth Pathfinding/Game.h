@@ -5,6 +5,13 @@
 #include "Board.h"
 #include "Robot.h"
 #include "StateMachine.h"
+#include "Settings.h"
+
+enum struct Algorithm
+{
+	DepthFirst,
+	BreadthFirst
+};
 
 //Contains all of the game's data
 struct GameData
@@ -13,6 +20,8 @@ struct GameData
 	Board board;
 	std::unique_ptr<Robot> robot;
 	engine::StateMachine stateMachine;
+	float timer = settings::initialTimer;
+	Algorithm algorithm = Algorithm::DepthFirst;
 };
 
 

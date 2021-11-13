@@ -10,9 +10,11 @@ namespace engine
 	public:
 		RunningState(std::shared_ptr<GameData> gameData);
 		void HandleInput() override;
-		void Update() override;
+		void Update(float dt) override;
 		void Draw() override;
 	private:
 		std::shared_ptr<GameData> gameData;
+		float accumulator = 0.f;
+		int moveCounter = 0;
 	};
 }

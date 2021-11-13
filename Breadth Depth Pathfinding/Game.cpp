@@ -43,7 +43,7 @@ void Game::Update()
 	gameData->stateMachine.ProcessStateChanges();
 
 	gameData->stateMachine.GetActiveState().HandleInput();
-	gameData->stateMachine.GetActiveState().Update();
+	gameData->stateMachine.GetActiveState().Update(GetFrameTime());
 
 }
 

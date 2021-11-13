@@ -5,13 +5,13 @@ namespace settings
 {
 	//Screen settings
 	inline constexpr int screenWidth = 1200;
-	inline constexpr int screenHeight = 800;
+	inline constexpr int screenHeight = 720;
 	inline constexpr int fps = 60;
 	inline constexpr char title[] = "Pathfinding robot";
 	
 	//Board settings
 	inline constexpr Vec2<int> widthHeight{11,9};
-	inline constexpr Vec2<int> boardScreenPos{250,150}; //The top-left position of the board on the screen
+	inline constexpr Vec2<int> boardScreenPos{250,100}; //The top-left position of the board on the screen
 	inline constexpr int cellRadius = 30;
 	inline constexpr int padding = 5;
 	inline constexpr int numbersFontSize = 30;
@@ -28,4 +28,5 @@ namespace settings
 	inline constexpr Vec2<int> initialObjectivePos{5,0};
 	//Misc.
 	inline constexpr int textFontSize = 40;
+	inline constexpr float initialTimer = 0.5f;
 }

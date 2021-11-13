@@ -9,7 +9,7 @@ namespace engine
 	public:
 		SetupState(std::shared_ptr<GameData> gameData);
 		void HandleInput() override;
-		void Update() override;
+		void Update(float dt) override;
 		void Draw() override;
 	private:
 		bool isPositionInsideBoard(Vec2<int> pos);

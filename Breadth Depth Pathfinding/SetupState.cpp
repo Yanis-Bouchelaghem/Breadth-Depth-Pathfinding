@@ -1,4 +1,6 @@
 #include "SetupState.h"
+#include <sstream>
+#include <algorithm>
 #include "Settings.h"
 #include "Vec2.h"
 #include "RunningState.h"
@@ -47,12 +49,30 @@ void engine::SetupState::HandleInput()
 		}
 	}
 
+	//Adjust the timer
+	if(IsKeyPressed(KEY_UP))
+		gameData->timer = std::min(gameData->timer + 0.25f, 5.f);
+	if(IsKeyPressed(KEY_DOWN))
+		gameData->timer = std::max(gameData->timer - 0.25f, 0.25f);
+
+	//Adjust the algorithm
+	if (IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_RIGHT))
+		switch (gameData->algorithm)
+		{
+		case Algorithm::BreadthFirst:
+			gameData->algorithm = Algorithm::DepthFirst;
+			break;
+		case Algorithm::DepthFirst:
+			gameData->algorithm = Algorithm::BreadthFirst;
+			break;
+		}
 	//Start the simulation once the players presses space
 	if(IsKeyPressed(KEY_SPACE))
 		gameData->stateMachine.AddState(std::make_unique<RunningState>(gameData),true);
+
 }
 
-void engine::SetupState::Update()
+void engine::SetupState::Update(float dt)
 {
 
 }
@@ -61,7 +81,30 @@ void engine::SetupState::Draw()
 {
 	gameData->board.Draw();
 	gameData->robot->DrawRobot();
-	raycpp::DrawText("Press space to start.",Vec2<int>{350,700},settings::textFontSize,WHITE);
+
+	//Draw the text
+	std::stringstream timerText, algorithmText, cellChangeText;
+	
+	raycpp::DrawText("Press space to start", Vec2<int>{350, 680}, settings::textFontSize, WHITE);
+	//Timer text
+	timerText << "Timer : " << gameData->timer << " secs (Up/Down arrow key to adjust)";
+	raycpp::DrawText(timerText.str(), Vec2<int>{280, 640}, settings::textFontSize / 1.5f, WHITE);
+	//Algorithm text
+	algorithmText << "Algorithm : ";
+	if(gameData->algorithm == Algorithm::DepthFirst)
+		algorithmText << "Depth First Search";
+	else
+		algorithmText << "Breadth First Search";
+	algorithmText << " (Left/Right arrow key to change)";
+	raycpp::DrawText(algorithmText.str(), Vec2<int>{200, 60}, settings::textFontSize/1.5f, GREEN);
+
+	//Cell change text
+	cellChangeText << "Left click to change cell / Right click to move robot";
+	raycpp::DrawText(cellChangeText.str(), Vec2<int>{250, 20}, settings::textFontSize/1.5f, WHITE);
+
+
+
+
 }
 
 bool engine::SetupState::isPositionInsideBoard(Vec2<int> pos)
