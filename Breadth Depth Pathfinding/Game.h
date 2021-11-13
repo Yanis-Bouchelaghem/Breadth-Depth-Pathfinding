@@ -22,6 +22,7 @@ struct GameData
 	engine::StateMachine stateMachine;
 	float timer = settings::initialTimer;
 	Algorithm algorithm = Algorithm::DepthFirst;
+	int moveCounter = 0;
 };
 
 

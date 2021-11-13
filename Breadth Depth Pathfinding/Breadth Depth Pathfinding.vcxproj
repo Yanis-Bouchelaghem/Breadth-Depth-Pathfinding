@@ -146,6 +146,7 @@
     <ClCompile Include="BFSRobot.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="DFSRobot.cpp" />
+    <ClCompile Include="FinishedState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="raylibCpp.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="BFSRobot.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="DFSRobot.h" />
+    <ClInclude Include="FinishedState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="Robot.h" />

@@ -63,6 +63,9 @@
     <ClCompile Include="SetupState.cpp">
       <Filter>Source Files\Engine\States</Filter>
     </ClCompile>
+    <ClCompile Include="FinishedState.cpp">
+      <Filter>Source Files\Engine\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files\Engine\States</Filter>
     </ClInclude>
     <ClInclude Include="SetupState.h">
+      <Filter>Header Files\Engine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="FinishedState.h">
       <Filter>Header Files\Engine\States</Filter>
     </ClInclude>
   </ItemGroup>

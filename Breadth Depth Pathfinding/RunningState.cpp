@@ -4,6 +4,7 @@
 #include "raylibCpp.h"
 #include "BFSRobot.h"
 #include "DFSRobot.h"
+#include "FinishedState.h"
 engine::RunningState::RunningState(std::shared_ptr<GameData> in_gameData)
 	:
 	gameData(std::move(in_gameData))
@@ -38,14 +39,14 @@ void engine::RunningState::Update(float dt)
 	{
 		if (gameData->robot->IsFinished())
 		{
-			//TODO : change state to finished
+			gameData->stateMachine.AddState(std::make_unique<FinishedState>(gameData), true);
 		}
 		else
 		{
 			//Advance the robot
 			gameData->robot->Next();
 			accumulator = 0.f;
-			++moveCounter;
+			++gameData->moveCounter;
 		}
 	}
 }
@@ -68,9 +69,9 @@ void engine::RunningState::Draw()
 	std::stringstream TimerText, moveCountText, algorithmText;
 	//Timer text
 	TimerText << "Timer : " << gameData->timer << " secs (Up/Down arrow key to adjust)";
-	raycpp::DrawText(TimerText.str(), Vec2<int>{280, 640}, settings::textFontSize / 1.5f, WHITE);
+	raycpp::DrawText(TimerText.str(), Vec2<int>{280, 640}, int(settings::textFontSize / 1.5f), WHITE);
 	//Move count text
-	moveCountText << "Number of moves : " << moveCounter;
+	moveCountText << "Number of moves : " << gameData->moveCounter;
 	raycpp::DrawText(moveCountText.str(), Vec2<int>{380, 10}, settings::textFontSize, GREEN);
 	//Algorithm text
 	algorithmText << "Algorithm : ";
@@ -78,5 +79,5 @@ void engine::RunningState::Draw()
 		algorithmText << "Depth First Search";
 	else
 		algorithmText << "Breadth First Search";
-	raycpp::DrawText(algorithmText.str(), Vec2<int>{380, 60}, settings::textFontSize / 1.5f, GREEN);
+	raycpp::DrawText(algorithmText.str(), Vec2<int>{380, 60}, int(settings::textFontSize / 1.5f), GREEN);
 }

@@ -88,7 +88,7 @@ void engine::SetupState::Draw()
 	raycpp::DrawText("Press space to start", Vec2<int>{350, 680}, settings::textFontSize, WHITE);
 	//Timer text
 	timerText << "Timer : " << gameData->timer << " secs (Up/Down arrow key to adjust)";
-	raycpp::DrawText(timerText.str(), Vec2<int>{280, 640}, settings::textFontSize / 1.5f, WHITE);
+	raycpp::DrawText(timerText.str(), Vec2<int>{280, 640}, int(settings::textFontSize / 1.5f), WHITE);
 	//Algorithm text
 	algorithmText << "Algorithm : ";
 	if(gameData->algorithm == Algorithm::DepthFirst)
@@ -96,11 +96,11 @@ void engine::SetupState::Draw()
 	else
 		algorithmText << "Breadth First Search";
 	algorithmText << " (Left/Right arrow key to change)";
-	raycpp::DrawText(algorithmText.str(), Vec2<int>{200, 60}, settings::textFontSize/1.5f, GREEN);
+	raycpp::DrawText(algorithmText.str(), Vec2<int>{200, 60}, int(settings::textFontSize/1.5f), GREEN);
 
 	//Cell change text
 	cellChangeText << "Left click to change cell / Right click to move robot";
-	raycpp::DrawText(cellChangeText.str(), Vec2<int>{250, 20}, settings::textFontSize/1.5f, WHITE);
+	raycpp::DrawText(cellChangeText.str(), Vec2<int>{250, 20}, int(settings::textFontSize/1.5f), WHITE);
 }
 
 bool engine::SetupState::isPositionInsideBoard(Vec2<int> pos)
