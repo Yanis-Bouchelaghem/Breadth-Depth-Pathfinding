@@ -101,10 +101,6 @@ void engine::SetupState::Draw()
 	//Cell change text
 	cellChangeText << "Left click to change cell / Right click to move robot";
 	raycpp::DrawText(cellChangeText.str(), Vec2<int>{250, 20}, settings::textFontSize/1.5f, WHITE);
-
-
-
-
 }
 
 bool engine::SetupState::isPositionInsideBoard(Vec2<int> pos)

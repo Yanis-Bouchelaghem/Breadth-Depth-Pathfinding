@@ -1,10 +1,25 @@
 #include "RunningState.h"
 #include <sstream>
+#include <memory>
 #include "raylibCpp.h"
-engine::RunningState::RunningState(std::shared_ptr<GameData> gameData)
+#include "BFSRobot.h"
+#include "DFSRobot.h"
+engine::RunningState::RunningState(std::shared_ptr<GameData> in_gameData)
 	:
-	gameData(std::move(gameData))
+	gameData(std::move(in_gameData))
 {
+	//Save the position of the dummy robot
+	Vec2<int> robotPos = gameData->robot->GetCurrentPosition();
+	//Create a new robot depending on the algorithm
+	switch (gameData->algorithm)
+	{
+	case Algorithm::BreadthFirst:
+		gameData->robot = std::make_unique<BFSRobot>(gameData->board,robotPos);
+		break;
+	case Algorithm::DepthFirst:
+		gameData->robot = std::make_unique<DFSRobot>(gameData->board, robotPos);
+		break;
+	}
 }
 
 void engine::RunningState::HandleInput()

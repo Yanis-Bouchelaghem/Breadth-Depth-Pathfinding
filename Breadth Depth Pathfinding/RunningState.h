@@ -8,7 +8,7 @@ namespace engine
 	class RunningState : public State
 	{
 	public:
-		RunningState(std::shared_ptr<GameData> gameData);
+		RunningState(std::shared_ptr<GameData> in_gameData);
 		void HandleInput() override;
 		void Update(float dt) override;
 		void Draw() override;
