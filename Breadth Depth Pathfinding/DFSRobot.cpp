@@ -8,6 +8,13 @@ DFSRobot::DFSRobot(Board& board, Vec2<int> robotPos)
 	positionsStack.push(robotPos);
 }
 
+void DFSRobot::SetCurrentPosition(Vec2<int> newPos)
+{
+	currentPos = newPos;
+	positionsStack.pop();//remove the old position
+	positionsStack.push(newPos);
+}
+
 bool DFSRobot::IsFinished() const
 {
 	return (positionsStack.empty() || bFoundObjective);

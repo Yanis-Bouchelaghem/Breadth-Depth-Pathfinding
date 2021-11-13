@@ -1,12 +1,12 @@
 #include "StateMachine.h"
 #include <assert.h>
-
-void engine::StateMachine::AddState(std::unique_ptr<State> newState, bool isReplacing)
+#include "State.h"
+void engine::StateMachine::AddState(std::unique_ptr<State> in_newState, bool isReplacing)
 {
 	bIsAdding = true;
 	bIsReplacing = isReplacing;
 
-	newState = std::move(newState);
+	newState = std::move(in_newState);
 }
 
 void engine::StateMachine::RemoveState()

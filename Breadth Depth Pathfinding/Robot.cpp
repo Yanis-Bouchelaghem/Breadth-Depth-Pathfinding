@@ -57,6 +57,12 @@ void Robot::DrawFinalObjectivePath()
 	}
 }
 
+
+Vec2<int> Robot::GetCurrentPosition()
+{
+	return currentPos;
+}
+
 bool Robot::IsPositionValid(Vec2<int> position) const
 {
 	//If the cell is out of bounds.

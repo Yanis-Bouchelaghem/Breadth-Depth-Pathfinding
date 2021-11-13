@@ -3,6 +3,7 @@
 #include "Vec2.h"
 #include "Board.h"
 
+//The possible states of a node
 enum class NodeState
 {
 	none,
@@ -10,6 +11,7 @@ enum class NodeState
 	targeted
 };
 
+//Represents a node in a graph
 struct Node
 {
 	NodeState state = NodeState::none;
@@ -29,6 +31,8 @@ public:
 	virtual void DrawTargetedOutline();//Outlines the targeted cells.
 	virtual void DrawFinalObjectivePath();//Outlines the cells to take to reach the objective and enumerates them.
 
+	virtual Vec2<int> GetCurrentPosition();
+	virtual void SetCurrentPosition(Vec2<int> newPos) = 0;//Sets the current position of the bot and puts it at the top of the container.
 	virtual void Next() = 0;//Advances the algorithm by one step (basically contains the algorithm logic).
 	virtual bool IsFinished() const = 0;//Returns true if the robot reached the objective or if it could not find it.
 protected:

@@ -61,6 +61,18 @@ public:
 	{
 		return *this = *this * rhs;
 	}
+	constexpr Vec2 operator/(const Vec2& rhs) const
+	{
+		return { x / rhs.x, y / rhs.y };
+	}
+	constexpr Vec2 operator/(const int rhs) const
+	{
+		return { x / rhs, y / rhs };
+	}
+	constexpr Vec2& operator/=(const Vec2& rhs)
+	{
+		return *this = *this / rhs;
+	}
 
 private:
 	T x;

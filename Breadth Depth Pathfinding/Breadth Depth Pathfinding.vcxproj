@@ -146,20 +146,26 @@
     <ClCompile Include="BFSRobot.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="DFSRobot.cpp" />
+    <ClCompile Include="FinishedState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="raylibCpp.cpp" />
     <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="RunningState.cpp" />
+    <ClCompile Include="SetupState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BFSRobot.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="DFSRobot.h" />
+    <ClInclude Include="FinishedState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="Robot.h" />
+    <ClInclude Include="RunningState.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="SetupState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Vec2.h" />

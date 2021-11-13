@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 namespace engine
 {
@@ -7,13 +8,13 @@ namespace engine
 	class State
 	{
 	public:
-		virtual void Init() = 0;
-
 		virtual void HandleInput() = 0;
-		virtual void Update() = 0;
+		virtual void Update(float dt) = 0;
 		virtual void Draw() = 0;
 
+		virtual void Init() {};
 		virtual void Pause() {};
 		virtual void Resume() {};
+
 	};
 }
