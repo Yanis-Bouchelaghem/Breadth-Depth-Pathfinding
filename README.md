@@ -1,3 +1,6 @@
+# Breadth & Depth First Search Robot
+Made using C++ and the Raylib graphics library.
+
 ## Depth First Search
 <img src="https://i.imgur.com/pvCjeCv.gif" />
 ## Breadth First Search
